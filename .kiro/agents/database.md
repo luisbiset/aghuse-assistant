@@ -17,4 +17,6 @@ Novas consultas devem usar JPA `CriteriaBuilder`. Não crie novas consultas com 
 - Todo `CREATE INDEX` termina com `ONLINE`.
 - Não copie essas cláusulas para scripts PostgreSQL.
 
+Scripts SQL, DDL e DML do AGHUse não devem entrar no Git (AGH-DB-001). Ao revisar mudanças, sinalize como achado qualquer script de banco commitado ou qualquer nova consulta usando `DetachedCriteria`, `Restrictions` ou `Projections`.
+
 Não conecte a bancos reais nem execute DDL/DML sem autorização. Nunca revele credenciais ou dados clínicos.
