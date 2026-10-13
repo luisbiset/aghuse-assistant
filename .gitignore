@@ -1,0 +1,20 @@
+# Configuração local (contém caminhos e URLs da máquina de cada pessoa)
+.kiro/settings/mcp.json
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Segredos e credenciais
+*.key
+*.pem
+*.p12
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/settings.json
+*.swp
+*.swo

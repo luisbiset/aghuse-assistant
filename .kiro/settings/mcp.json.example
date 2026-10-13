@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "redmine": {
+      "command": "node",
+      "args": ["/CAMINHO/ABSOLUTO/aghuse-assistant/plugins/redmine-agent/scripts/server.mjs"],
+      "env": {
+        "REDMINE_URL": "https://redmine.saude.ba.gov.br/"
+      },
+      "disabled": false
+    }
+  }
+}
