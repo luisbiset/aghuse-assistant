@@ -7,6 +7,19 @@
         "REDMINE_URL": "https://redmine.saude.ba.gov.br/"
       },
       "disabled": false
+    },
+    "aghuse-db-readonly": {
+      "command": "node",
+      "args": ["/CAMINHO/ABSOLUTO/aghuse-assistant/plugins/aghuse-assistant/scripts/aghu-db-mcp.mjs"],
+      "env": {
+        "AGHU_DB_HOST": "SEU_HOST_ORACLE",
+        "AGHU_DB_PORT": "1521",
+        "AGHU_DB_SERVICE": "SEU_SERVICE_NAME",
+        "AGHU_DB_USER": "SEU_USUARIO",
+        "AGHU_DB_PASSWORD": "SUA_SENHA",
+        "AGHU_SQLPLUS": "sqlplus"
+      },
+      "disabled": true
     }
   }
 }

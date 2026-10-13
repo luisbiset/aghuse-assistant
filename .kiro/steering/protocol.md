@@ -84,6 +84,45 @@ Pare antes de escrever quando houver:
 
 Use `NEEDS_EXPLANATION` quando uma solução aparentemente correta não puder ser explicada por causa, ponto da correção, comportamento preservado, evidência e rollback.
 
+## Times de agentes (FLOW-005)
+
+O runtime seleciona o time pelo estado atual e o menor conjunto de especialistas necessário.
+
+### ANALISE — somente leitura
+
+**Estados**: `DISCOVERY`, `PLAN_READY`
+**Pode escrever**: não
+**Agentes**: `architecture`, `database`, `sfa_backend`, `sfa_frontend`, `sfa_database`
+
+### DESENVOLVIMENTO — pode alterar código
+
+**Estados**: `IMPLEMENTING`
+**Pode escrever**: sim
+**Agentes**: `backend`, `frontend`, `database`, `qa`, `sfa_backend`, `sfa_frontend`, `sfa_database`, `sfa_tests`, `aghuse_assistant`
+
+### REVISAO_QUALIDADE — validação independente
+
+**Estados**: `VALIDATING`, `REVIEW_READY`, `HOMOLOGATION_READY`
+**Pode escrever**: não
+**Agentes**: `qa`, `architecture`, `sfa_tests`
+
+### Regras de seleção
+
+- Selecione sempre o **menor** número de agentes suficiente. Nunca selecione todos por padrão.
+- O implementador não pode ser o revisor final.
+- Coordenadores LLM não contam como chamadas de modelo — use zero chamadas de coordenação.
+- Agentes do time ANALISE podem atuar com `team=ANALISE` sem escrita, mesmo que também pertençam ao DESENVOLVIMENTO.
+
+### Distribuição de budget por complexidade (soft targets)
+
+| Time | TRIVIAL | LOCALIZED | TRANSVERSAL | CRITICAL |
+|---|---|---|---|---|
+| ANALISE | 0–15% | 10–25% | 20–30% | 25–35% |
+| DESENVOLVIMENTO | 70–100% | 50–70% | 40–60% | 35–50% |
+| REVISAO_QUALIDADE | 0–30% | 20–35% | 25–40% | 30–40% |
+
+---
+
 ## Responsabilidade humana
 
 Gate anterior nunca autoriza Redmine, banco, deploy, commit ou push. Cada ação externa exige pedido próprio.
