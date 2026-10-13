@@ -92,19 +92,19 @@ O runtime seleciona o time pelo estado atual e o menor conjunto de especialistas
 
 **Estados**: `DISCOVERY`, `PLAN_READY`
 **Pode escrever**: não
-**Agentes**: `architecture`, `database`, `sfa_backend`, `sfa_frontend`, `sfa_database`
+**Agentes**: `architecture`, `database`
 
 ### DESENVOLVIMENTO — pode alterar código
 
 **Estados**: `IMPLEMENTING`
 **Pode escrever**: sim
-**Agentes**: `backend`, `frontend`, `database`, `qa`, `sfa_backend`, `sfa_frontend`, `sfa_database`, `sfa_tests`, `aghuse_assistant`
+**Agentes**: `backend`, `frontend`, `database`, `qa`, `aghuse_assistant`
 
 ### REVISAO_QUALIDADE — validação independente
 
 **Estados**: `VALIDATING`, `REVIEW_READY`, `HOMOLOGATION_READY`
 **Pode escrever**: não
-**Agentes**: `qa`, `architecture`, `sfa_tests`
+**Agentes**: `qa`, `architecture`
 
 ### Regras de seleção
 
